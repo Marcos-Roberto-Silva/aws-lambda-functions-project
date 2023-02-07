@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9b3ebf8-3bbb-42c2-85c2-51323dd3f023" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lambda/products/productsFetchFunction.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/ecommerceApi-stack.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/productsApp-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/e_commerce_aws.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bin/e_commerce_aws.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/e_commerce_aws-stack.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/productsApp-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/productsApp-stack.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +12,31 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1675806905" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1675806904" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -45,7 +66,7 @@
       <updated>1675770607066</updated>
       <workItem from="1675770608519" duration="2706000" />
       <workItem from="1675774548674" duration="17361000" />
-      <workItem from="1675800223483" duration="1529000" />
+      <workItem from="1675800223483" duration="2838000" />
     </task>
     <servers />
   </component>
