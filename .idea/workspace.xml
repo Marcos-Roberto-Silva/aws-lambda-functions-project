@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9b3ebf8-3bbb-42c2-85c2-51323dd3f023" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/e_commerce_aws.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bin/e_commerce_aws.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/productsApp-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/productsApp-stack.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +70,7 @@
       <updated>1675770607066</updated>
       <workItem from="1675770608519" duration="2706000" />
       <workItem from="1675774548674" duration="17361000" />
-      <workItem from="1675800223483" duration="2838000" />
+      <workItem from="1675800223483" duration="4337000" />
     </task>
     <servers />
   </component>

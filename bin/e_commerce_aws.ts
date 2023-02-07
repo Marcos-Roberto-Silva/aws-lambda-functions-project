@@ -3,11 +3,13 @@ import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import {ProductsAppStack} from "../lib/productsApp-stack";
 import {EcommerceApiStack} from "../lib/ecommerceApi-stack";
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 const app = new cdk.App();
 
 const env: cdk.Environment = {
-    account: "469224330831",
+    account: process.env.S3_BUCKET,
     region: "us-east-1",
 }
 
