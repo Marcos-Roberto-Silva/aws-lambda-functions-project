@@ -8,6 +8,8 @@ import * as dynaDB from 'aws-cdk-lib/aws-dynamodb'
 
 export class ProductsAppStack extends cdk.Stack {
     readonly productsFetchHandler: lambdaNodeJS.NodejsFunction; //it's referencing my function
+    readonly productsAdminHandler: lambdaNodeJS.NodejsFunction;
+
     readonly productsDdb: dynaDB.Table //sets attribute type;
 
     constructor(scope: Construct, id: string, props: cdk.StackProps) {
@@ -26,6 +28,7 @@ export class ProductsAppStack extends cdk.Stack {
         });
 
         //productsFetchHandler can be used in the constructor of the archive ecommerceApi-stack when using only .js extension
+        //This method was built to be able to perform action as: GET requests
         this.productsFetchHandler = new lambdaNodeJS.NodejsFunction(this,
             "ProductsFetchFunction", {
                 functionName: "ProductsFetchFunction", // this is the name I will search for on aws-console
@@ -37,7 +40,28 @@ export class ProductsAppStack extends cdk.Stack {
                     minify: true, // removing spaces and shortening variables' name
                     sourceMap: false
                 },
+                environment: {
+                    PRODUCTS_DDB: this.productsDdb.tableName
+                }
             });
-        this.productsDdb.grantReadData(this.productsFetchHandler) //giving table granted reading data
+        this.productsDdb.grantReadData(this.productsFetchHandler); //permission for the function access the table
+
+        //This method was built to be able to perform actions as: POST/ UPDATE and DELETE
+        this.productsAdminHandler = new lambdaNodeJS.NodejsFunction(this,
+            "ProductsAdminFunction", {
+                functionName: "ProductsAdminFunction", // this is the name I will search for on aws-console
+                entry: "lambda/products/productsAdminFunction.ts", //this is where my code will stay
+                handler: "handler", // method to be executed in productsFetchFunction.ts
+                memorySize: 128, // memory size in mgb when executing the function
+                timeout: cdk.Duration.seconds(5), // maximum time of execution
+                bundling: { // packaging to upload the function
+                    minify: true, // removing spaces and shortening variables' name
+                    sourceMap: false
+                },
+                environment: {
+                    PRODUCTS_DDB: this.productsDdb.tableName
+                }
+            });
+        this.productsDdb.grantWriteData(this.productsAdminHandler); //permission to the function access the table
     }
 }

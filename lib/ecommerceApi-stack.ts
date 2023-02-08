@@ -7,6 +7,7 @@ import {ApiGateway} from "aws-cdk-lib/aws-events-targets";
 
 interface ECommerceApiStackProps extends cdk.StackProps {
     productsFetchHandler: lambdaNodeJS.NodejsFunction
+    productsAdminHandler: lambdaNodeJS.NodejsFunction
 }
 
 export class EcommerceApiStack extends cdk.Stack {
@@ -37,6 +38,23 @@ export class EcommerceApiStack extends cdk.Stack {
         // '/products'
         const productsResource =  api.root.addResource('products');
         productsResource.addMethod("GET", productsFetchIntegration)
+
+        // '/products/{id}'
+        // here I'm adding a new resource into an existing one, in this case the product id.
+        const productsIdResource = productsResource.addResource("{id}");
+        productsIdResource.addMethod("GET", productsFetchIntegration);
+
+
+        const productsAdminIntegration = new apiGateway.LambdaIntegration(props.productsAdminHandler);
+
+        // POST /products
+        productsResource.addMethod("POST", productsAdminIntegration);
+
+        // PUT /products/{productId}
+        productsIdResource.addMethod("PUT", productsAdminIntegration);
+
+        // DELETE /products/{productId}
+        productsIdResource.addMethod("DELETE", productsAdminIntegration);
 
     }
 }
