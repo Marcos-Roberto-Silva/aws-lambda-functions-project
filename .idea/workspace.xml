@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9b3ebf8-3bbb-42c2-85c2-51323dd3f023" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/lambda/products/layers/productsLayer/nodejs/productRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lambda/products/layers/productsLayer/nodejs/productRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lambda/products/layers/productsLayer/nodejs/productRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lambda/products/layers/productsLayer/nodejs/productsRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lambda/products/productsAdminFunction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lambda/products/productsAdminFunction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lambda/products/productsFetchFunction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lambda/products/productsFetchFunction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/productsAppLayers-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/productsAppLayers-stack.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +70,7 @@
       <workItem from="1675770608519" duration="2706000" />
       <workItem from="1675774548674" duration="17361000" />
       <workItem from="1675800223483" duration="11740000" />
-      <workItem from="1675848181783" duration="6935000" />
+      <workItem from="1675848181783" duration="19255000" />
     </task>
     <servers />
   </component>

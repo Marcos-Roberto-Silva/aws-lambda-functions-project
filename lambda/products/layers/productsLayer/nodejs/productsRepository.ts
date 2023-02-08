@@ -1,4 +1,4 @@
-import { DocumentClient } from 'aws-sdk/clients/dynamodb'
+import { DocumentClient } from "aws-sdk/clients/dynamodb"
 import {v4 as uuid} from "uuid";
 
 export interface Product {
@@ -9,7 +9,7 @@ export interface Product {
     model: string;
 }
 
-export class ProductRepository {
+export class ProductsRepository {
     private ddbClient: DocumentClient
     private productsDdb: string
 
@@ -42,7 +42,7 @@ export class ProductRepository {
 
     async create(product: Product): Promise<Product> {
         product.id = uuid();
-        await this.ddbClient.post({
+        await this.ddbClient.put({
             TableName: this.productsDdb,
             Item: product
         }).promise()
@@ -62,5 +62,25 @@ export class ProductRepository {
         } else {
             throw new Error(`Cannot delete product with ID ${productId}`);
         }
+    }
+
+    async update(productId: string, product: Product): Promise<Product> {
+        const data = await this.ddbClient.update({
+            TableName: this.productsDdb,
+            Key: {
+                id: productId
+            },
+            ConditionExpression: 'attribute_exists(id)',
+            ReturnValues: "UPDATED_NEW",
+            UpdateExpression: "set productName = :n, code = :c, price = :p, model = :m",
+            ExpressionAttributeValues: {
+                ":n": product.productName,
+                ":c": product.code,
+                ":p": product.price,
+                ":m": product.model
+            }
+        }).promise();
+        data.Attributes!.id = productId;
+        return data.Attributes as Product;
     }
 }
