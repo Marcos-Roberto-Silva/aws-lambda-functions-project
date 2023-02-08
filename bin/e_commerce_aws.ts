@@ -3,6 +3,7 @@ import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import {ProductsAppStack} from "../lib/productsApp-stack";
 import {EcommerceApiStack} from "../lib/ecommerceApi-stack";
+import {ProductsAppLayersStack} from "../lib/productsAppLayers-stack";
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -13,15 +14,21 @@ const env: cdk.Environment = {
     region: "us-east-1",
 }
 
-const tags =  {
+const tags = {
     cost: "Ecommerce",
     team: "thinkShield"
 }
+
+const productsAppLayerStack = new ProductsAppLayersStack(app, "ProductsAppLayers", {
+    tags: tags,
+    env: env
+});
 
 const productsAppStack = new ProductsAppStack(app, "ProductsApp", {
     tags: tags,
     env: env
 });
+productsAppStack.addDependency(productsAppLayerStack) // Adding dependencies, because I don't wanna it is created before
 
 const eCommerceApiStack = new EcommerceApiStack(app, "EcommerceApi", {
     productsFetchHandler: productsAppStack.productsFetchHandler,
